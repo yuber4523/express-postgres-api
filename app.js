@@ -4,10 +4,10 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import routes from './server/routes';
 
-const hostname = 'localhost';
+//const hostname = 'localhost';
 const port = 3000;
 const app = express(); // setup express application
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
 app.use(logger('dev')); // log requests to the console
 
@@ -21,6 +21,6 @@ app.get('*', (req, res) => res.status(200).send({
   message: 'Welcome to the default API route',
 }));
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+httpServer.listen(port, () => {
+  console.log(`Server running at PORT:${port}`);
 });
